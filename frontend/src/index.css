@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #EFEDE7;
+  --color-surface: #FFFFFF;
+  --color-ink: #23272B;
+  --color-accent-primary: #F2A93B;
+  --color-accent-secondary: #2E5339;
+  --color-danger: #B3412C;
+  --color-success: #2E5339;
+  --color-warning: #F2A93B;
+}
+
+@layer base {
+  :root {
+    --bg-base: #EFEDE7;
+    --surface: #FFFFFF;
+    --ink: #23272B;
+    --accent-primary: #F2A93B;
+    --accent-secondary: #2E5339;
+    --danger: #B3412C;
+    --success: #2E5339;
+    --warning: #F2A93B;
+  }
+  
+  body {
+    background-color: var(--bg-base);
+    color: var(--ink);
+    font-family: 'Inter', 'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo', 'Barlow Condensed', system-ui, sans-serif;
+    font-weight: 700;
+  }
+  
+
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+@media print {
+  /* Sembunyikan elemen non-cetak */
+  .no-print, nav, .sidebar, button, header {
+    display: none !important;
+  }
+
+  /* Reset background untuk cetak */
+  body {
+    background-color: white;
+    color: black;
+  }
+  
+  /* Cetak layout spesifik */
+  .print-only {
+    display: block !important;
+  }
+
+  .print-area {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  @page {
+    margin: 0;
+  }
+}
