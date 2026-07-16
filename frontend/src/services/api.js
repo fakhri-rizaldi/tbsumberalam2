@@ -24,7 +24,8 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response && error.response.status === 401) {
+    // Jangan redirect jika error 401 berasal dari percobaan login
+    if (error.response && error.response.status === 401 && !error.config.url.includes('login')) {
       // Token tidak valid atau kedaluwarsa, lakukan logout
       localStorage.removeItem('auth_token');
       // Redirect ke login, namun di Axios biasanya butuh pendekatan khusus, 
