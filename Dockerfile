@@ -24,5 +24,8 @@ RUN composer install --no-dev --optimize-autoloader
 # Izinkan akses folder storage
 RUN chmod -R 777 storage bootstrap/cache
 
+# Beritahu Back4App port yang kita gunakan
+EXPOSE 8080
+
 # Jalankan server bawaan Laravel (cocok untuk API)
-CMD php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
+CMD php artisan serve --host=0.0.0.0 --port=8080
