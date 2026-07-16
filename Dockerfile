@@ -27,5 +27,8 @@ RUN chmod -R 777 storage bootstrap/cache
 # Beritahu Back4App port yang kita gunakan
 EXPOSE 8080
 
+# Aktifkan multi-threading agar lebih cepat (tidak ngantri)
+ENV PHP_CLI_SERVER_WORKERS=5
+
 # Jalankan server bawaan Laravel (cocok untuk API)
 CMD php artisan serve --host=0.0.0.0 --port=8080
